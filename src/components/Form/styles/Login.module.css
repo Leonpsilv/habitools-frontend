@@ -1,0 +1,12 @@
+.container {
+    display: block;
+    margin: 0px auto;
+    padding: 10px;
+    background-color: #121c2c;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.container h1 {
+    color: #f0dcbb;
+}
