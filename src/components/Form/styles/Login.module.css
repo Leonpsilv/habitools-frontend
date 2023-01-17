@@ -1,12 +1,36 @@
 .container {
     display: block;
     margin: 0px auto;
-    padding: 10px;
-    background-color: #121c2c;
     max-width: 500px;
-    border-radius: 10px;
+    padding: 40px;
+
+    background: #121c2c;
+    background-color: rgba(0, 0, 0, .8);
+    box-shadow: 0px 0px 7px #000000;
+    border-radius: 8px;
+    color: #f0dcbb;
+
+    margin-top: 25vh
 }
 
 .container h1 {
-    color: #f0dcbb;
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+.inputSection {
+    max-width: 550px;
+    margin-top: 20px;
+}
+
+.inputSection label {
+    padding: 10px;
+}
+
+.container p a {
+    color: #fbc460;
+}
+
+.container p a:hover {
+    color: #cd5e3a;
 }
