@@ -1,5 +1,11 @@
 .input {
     max-width: 350px;
     margin-bottom: 30px;
-    background-color:#f0dcbb;;
+    background-color:#f0dcbb;
+    font-size: 15px;
+}
+
+.input::placeholder {
+    color: #121c2c;
+    opacity: 0.7;
 }

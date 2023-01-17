@@ -6,7 +6,7 @@ import stylesInp from "./styles/Input.module.css";
 import stylesBtn from "./styles/Btn.module.css";
 
 const Login = () => (
-  <div className={styles.container}>
+  <div className={styles.containerLogin}>
     <h1>Faça seu Login</h1>
 
     <div className={styles.inputSection}>
@@ -27,11 +27,17 @@ const Login = () => (
         name="emailInput"
         inputType="password"
       />
+
     </div>
-    <ButtonForm
-      value="Enviar"
-      classType={stylesBtn.btn}
-    />
+
+    <div className={styles.loginActions}>
+      <ButtonForm
+        value="Enviar"
+        classType={stylesBtn.btn}
+        />
+  
+      <p className={styles.fpassword}><a href="#">Esqueceu a senha?</a></p>
+    </div>
 
     <p> Não possui cadastro? <a href="#">Clique aqui.</a></p>
   </div>

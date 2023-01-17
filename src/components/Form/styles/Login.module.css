@@ -1,19 +1,35 @@
-.container {
-    display: block;
-    margin: 0px auto;
-    max-width: 500px;
-    padding: 40px;
+/* @media (max-width: 640px) {
+    .containerLogin {
+        display: block;
+        margin: 0px auto;
+        max-width: 500px;
+        min-height: none;
+        max-height: fit-content;
+        padding: 40px;
+    
+        background-color: rgba(0, 0, 0, 1);
+        box-shadow: 0px 0px 7px #000000;
+    
+    }
+} */
 
-    background: #121c2c;
+.containerLogin {
+    max-width: 600px;
+    min-height: 100vh;
+
     background-color: rgba(0, 0, 0, .8);
-    box-shadow: 0px 0px 7px #000000;
-    border-radius: 8px;
+    box-shadow: -5px -2px 20px #000000;
     color: #f0dcbb;
 
-    margin-top: 25vh
+    padding: 50px;
+    padding-top: 80px;
+    position: relative;
+    left: calc(100% - 595px);
+
+    font-size: 20px;
 }
 
-.container h1 {
+.containerLogin h1 {
     max-width: fit-content;
     margin: 0 auto;
 }
@@ -27,10 +43,28 @@
     padding: 10px;
 }
 
-.container p a {
+.containerLogin p{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.containerLogin p a {
     color: #fbc460;
 }
 
-.container p a:hover {
+.containerLogin p a:hover {
     color: #cd5e3a;
+}
+
+.fpassword {
+    max-width: fit-content;
+}
+
+.loginActions {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    max-width: 80%;
+    margin-bottom: 30px;
 }
