@@ -11,7 +11,7 @@
         box-shadow: 0px 0px 7px #000000;
     
     }
-} */
+}*/
 
 .containerLogin {
     max-width: 600px;
@@ -27,6 +27,17 @@
     left: calc(100% - 600px);
 
     font-size: 20px;
+
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: animeLeft 0.4s forwards;
+}
+
+@keyframes animeLeft {
+    to {
+        opacity: 1;
+        transform: initial;
+    }
 }
 
 .containerLogin h1 {
@@ -37,15 +48,12 @@
 .inputSection {
     max-width: 550px;
     margin-top: 20px;
-}
-
-.inputSection label {
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .containerLogin p{
     margin-top: 10px;
-    margin-bottom: 30px;
 }
 
 .containerLogin p a {
@@ -67,4 +75,5 @@
 
     max-width: 80%;
     margin-bottom: 30px;
+    margin-top: 20px;
 }

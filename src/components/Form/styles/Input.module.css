@@ -1,6 +1,5 @@
 .input {
     max-width: 350px;
-    margin-bottom: 30px;
     background-color:#f0dcbb;
     font-size: 15px;
 }
@@ -12,6 +11,9 @@
 
 .msgError {
     color: red;
-    font-size: 10px;
-    padding: 0px;
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 2px;
+    padding: 2px;
+    max-width: fit-content;
 }

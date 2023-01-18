@@ -11,11 +11,11 @@ type Props = {
   value: any
   error: any
   onChange: any
+  onBlur: any
 };
 
 const InputForm: React.FC<Props> = (Props) => (
   <>
-    {Props.error && <p className={style.msgError}>{Props.error}</p>}
     <Input
       placeholder={Props.place}
       className={Props.classType}
@@ -23,7 +23,9 @@ const InputForm: React.FC<Props> = (Props) => (
       type={Props.inputType}
       value={Props.value}
       onChange={Props.onChange}
+      onBlur={Props.onBlur}
     />
+    {Props.error && <p className={style.msgError}>{Props.error}</p>}
   </>
 );
 
