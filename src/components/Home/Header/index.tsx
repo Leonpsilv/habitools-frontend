@@ -4,21 +4,16 @@ import { CarryOutOutlined } from '@ant-design/icons';
 import { Space } from 'antd';
 
 import style from "./styles/Header.module.css";
-
-const date = new Date();
-const months = [
-  'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-  'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-];
-
-
-const items1: MenuProps['items'] = months.map((key) => ({
-  key,
-  label: `${key}`,
-}));
+import useGetDate from "../../../Hooks/useGetDate";
 
 const HeaderHome = () => {
   const {Header} = Layout;
+  const {months, date} = useGetDate();
+  const items1: MenuProps['items'] = months.map((key) => ({
+    key,
+    label: key,
+  }));
+
   return (
     <Header className={style.header}>
       <div className={style.logo} />
