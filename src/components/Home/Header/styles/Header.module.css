@@ -1,0 +1,12 @@
+.header {
+    display: flex;
+}
+
+.iconLogo {
+    margin: 5px;
+}
+
+.logoItens {
+    height: fit-content;
+    margin-left: 50px;
+}
