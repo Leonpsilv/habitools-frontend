@@ -6,21 +6,34 @@ import { Space } from 'antd';
 import style from "./styles/Header.module.css";
 import useGetDate from "../../../Hooks/useGetDate";
 
-const HeaderHome = () => {
+const HeaderHome = ({setSelectMonth}: any) => {
   const {Header} = Layout;
   const {months, date} = useGetDate();
+  const currentMonth = months[date.getMonth()];
+
   const items1: MenuProps['items'] = months.map((key) => ({
     key,
     label: key,
   }));
 
+  function setNewSelectedMonth ({key}: any) {
+    setSelectMonth(key);
+  }
+
   return (
     <Header className={style.header}>
-      <div className={style.logo} />
       <Space className={style.iconLogo}>
         <CarryOutOutlined style={{color: 'white', fontSize: '55px'}}/>
       </Space>
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[`${months[date.getMonth()]}`]} items={items1} className={style.logoItens}/>
+
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={[currentMonth]}
+        items={items1}
+        className={style.logoItens}
+        onClick={({key}) => setNewSelectedMonth({key})}
+      />
     </Header>
   )
 }
