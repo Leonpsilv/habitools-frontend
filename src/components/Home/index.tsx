@@ -3,7 +3,7 @@ import { useState } from 'react';
 import useGetDate from '../../Hooks/useGetDate';
 
 import HeaderHome from './Header';
-import MenuSection from './Sections';
+import MenuSection from './Menu';
 
 const { Content, Footer, Sider } = Layout;
 
