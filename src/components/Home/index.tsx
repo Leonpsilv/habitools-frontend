@@ -4,6 +4,7 @@ import useGetDate from '../../Hooks/useGetDate';
 
 import HeaderHome from './Header';
 import MenuSection from './Menu';
+import MenuInfo from './Menu/MenuInfo';
 
 const { Content, Footer, Sider } = Layout;
 
@@ -18,19 +19,21 @@ const Home = () => {
     return (
       <Layout>
         <HeaderHome setSelectMonth={setSelectMonth}/>
+
         <Content style={{ padding: '0 50px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>{selectMonth}</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
+          <MenuInfo selectMonth={selectMonth} />
+
           <Layout style={{ padding: '24px 0', background: colorBgContainer }}>
             <Sider style={{ background: colorBgContainer }} width={200}>
+
               <MenuSection />
             </Sider>
+
             <Content style={{ padding: '0 24px', minHeight: 280 }}>{selectMonth}</Content>
           </Layout>
+          
         </Content>
+
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
       </Layout>
     );
