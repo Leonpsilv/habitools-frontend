@@ -2,28 +2,47 @@ import React from 'react';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { LaptopOutlined, NotificationOutlined, UserOutlined, CarryOutOutlined } from '@ant-design/icons';
+import useGetDate from '../../../Hooks/useGetDate';
 
-const items2: MenuProps['items'] = [CarryOutOutlined, LaptopOutlined, NotificationOutlined, UserOutlined, LaptopOutlined].map(
-  (icon, index) => {
-    const key = String(index + 1);
+const MenuSection = ({selectMonth}: any) => {
+  const { months, dayWeek, dayWeekEnglish, date, getAllDaysInMonth } = useGetDate();
+  const dateInfos: any = getAllDaysInMonth(date.getFullYear(), months.indexOf(selectMonth));
 
-    return {
-      key: `sub${key}`,
-      icon: React.createElement(icon),
-      label: `Semana ${key}`,
+  const subItensIcons = [
+    CarryOutOutlined,
+    LaptopOutlined,
+    NotificationOutlined,
+    UserOutlined,
+    LaptopOutlined
+  ];
 
-      children: new Array(4).fill(null).map((_, j) => {
-        const subKey = index * 4 + j + 1;
+  const items2: MenuProps['items'] = [1, 2, 3, 4, 5].map(
+    (item, index) => {
+      const key = String(index + 1);
+      if(index * 7 < dateInfos.length){
         return {
-          key: subKey,
-          label: `option${subKey}`,
-        };
-      }),
-    };
-  },
-);
+          key: `sub${key}`,
+          icon: React.createElement(subItensIcons[index]),
+          label: `Semana ${key}`,
+    
+          children: new Array(7).fill(null).map((_, j) => {
+            const subKey = index * 7 + j;
 
-const MenuSection = () => {
+            if(subKey < dateInfos.length){
+              const dayWeekIndex = dayWeekEnglish.indexOf(dateInfos[subKey].dayWeek);
+
+              return {
+                key: subKey,
+                label: `${subKey + 1} - ${dayWeek[dayWeekIndex]}`,
+              };
+            }
+            return null;
+          }),
+        };
+      }
+      return null;
+    },
+  );
   return (
     <Menu
       mode="inline"

@@ -26,7 +26,7 @@ const Home = () => {
           <Layout style={{ padding: '24px 0', background: colorBgContainer }}>
             <Sider style={{ background: colorBgContainer }} width={200}>
 
-              <MenuSection />
+              <MenuSection selectMonth={selectMonth}/>
             </Sider>
 
             <Content style={{ padding: '0 24px', minHeight: 280 }}>{selectMonth}</Content>

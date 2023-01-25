@@ -5,6 +5,7 @@ const useGetDate = () => {
     'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
   ];
   const dayWeek = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo'];
+  const dayWeekEnglish = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   function getAllDaysInMonth(year: number, month: number) {
     const date = new Date(year, month, 1);
@@ -29,6 +30,7 @@ const useGetDate = () => {
     date,
     months,
     dayWeek,
+    dayWeekEnglish,
     getAllDaysInMonth
   }
 }
