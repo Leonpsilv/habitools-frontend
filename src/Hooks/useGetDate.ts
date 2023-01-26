@@ -26,12 +26,23 @@ const useGetDate = () => {
     return dates;
   }
 
+  function getCurrentWeek() {
+    const currentDay = date.getDate();
+    const currentWeek = (currentDay / 7);
+
+    if(Math.trunc(currentWeek) !== currentWeek){
+      return (Math.trunc(currentWeek) + 1).toString();
+    }
+    return currentWeek.toString();
+  }
+
   return {
     date,
     months,
     dayWeek,
     dayWeekEnglish,
-    getAllDaysInMonth
+    getAllDaysInMonth,
+    getCurrentWeek
   }
 }
 

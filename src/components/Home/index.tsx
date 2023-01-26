@@ -15,21 +15,22 @@ const Home = () => {
 
     const {date, months} = useGetDate();
     const [selectMonth, setSelectMonth] = useState(months[date.getMonth()]);
+    const [selectDay, setSelectDay] = useState(date.getDate());
   
     return (
       <Layout>
         <HeaderHome setSelectMonth={setSelectMonth}/>
 
         <Content style={{ padding: '0 50px' }}>
-          <MenuInfo selectMonth={selectMonth} />
+          <MenuInfo selectMonth={selectMonth} selectDay={selectDay} />
 
           <Layout style={{ padding: '24px 0', background: colorBgContainer }}>
             <Sider style={{ background: colorBgContainer }} width={200}>
 
-              <MenuSection selectMonth={selectMonth}/>
+              <MenuSection selectMonth={selectMonth} setSelectDay={setSelectDay} selectDay={selectDay}/>
             </Sider>
 
-            <Content style={{ padding: '0 24px', minHeight: 280 }}>{selectMonth}</Content>
+            <Content style={{ padding: '0 24px', minHeight: 280 }}>{selectDay} de {selectMonth} de 2023</Content>
           </Layout>
 
         </Content>

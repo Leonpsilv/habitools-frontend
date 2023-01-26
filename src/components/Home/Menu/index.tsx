@@ -4,8 +4,15 @@ import { Menu } from 'antd';
 import { LaptopOutlined, NotificationOutlined, UserOutlined, CarryOutOutlined } from '@ant-design/icons';
 import useGetDate from '../../../Hooks/useGetDate';
 
-const MenuSection = ({selectMonth}: any) => {
-  const { months, dayWeek, dayWeekEnglish, date, getAllDaysInMonth } = useGetDate();
+const MenuSection = ({selectMonth, setSelectDay, selectDay}: any) => {
+  const {
+    months,
+    dayWeek,
+    dayWeekEnglish,
+    date,
+    getAllDaysInMonth,
+    getCurrentWeek
+  } = useGetDate();
   const dateInfos: any = getAllDaysInMonth(date.getFullYear(), months.indexOf(selectMonth));
 
   const subItensIcons = [
@@ -26,13 +33,12 @@ const MenuSection = ({selectMonth}: any) => {
           label: `Semana ${key}`,
     
           children: new Array(7).fill(null).map((_, j) => {
-            const subKey = index * 7 + j;
+            const subKey: any = index * 7 + j;
 
             if(subKey < dateInfos.length){
               const dayWeekIndex = dayWeekEnglish.indexOf(dateInfos[subKey].dayWeek);
-
               return {
-                key: subKey,
+                key: `${subKey + 1}`,
                 label: `${subKey + 1} - ${dayWeek[dayWeekIndex]}`,
               };
             }
@@ -43,13 +49,19 @@ const MenuSection = ({selectMonth}: any) => {
       return null;
     },
   );
+
+  function SelectedItem({key}: any) {
+    setSelectDay(key);
+  }
+
   return (
     <Menu
       mode="inline"
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
+      defaultSelectedKeys={[selectDay.toString()]}
+      defaultOpenKeys={[`sub${getCurrentWeek()}`]}
       style={{ height: '100%' }}
       items={items2}
+      onClick={({key}) => SelectedItem({key})}
     /> 
   )
 }
