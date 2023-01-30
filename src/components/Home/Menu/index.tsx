@@ -10,6 +10,7 @@ const MenuSection = ({selectMonth, setSelectDay, selectDay}: any) => {
     dayWeek,
     dayWeekEnglish,
     date,
+    currentMonth,
     getAllDaysInMonth,
     getCurrentWeek
   } = useGetDate();
@@ -23,12 +24,16 @@ const MenuSection = ({selectMonth, setSelectDay, selectDay}: any) => {
     LaptopOutlined
   ];
 
+  function selectedItem({key}: any) {
+    setSelectDay(key);
+  }
+
   const items2: MenuProps['items'] = [1, 2, 3, 4, 5].map(
     (item, index) => {
       const key = String(index + 1);
       if(index * 7 < dateInfos.length){
         return {
-          key: `sub${key}`,
+          key: `week${key}/${selectMonth}`,
           icon: React.createElement(subItensIcons[index]),
           label: `Semana ${key}`,
     
@@ -38,7 +43,7 @@ const MenuSection = ({selectMonth, setSelectDay, selectDay}: any) => {
             if(subKey < dateInfos.length){
               const dayWeekIndex = dayWeekEnglish.indexOf(dateInfos[subKey].dayWeek);
               return {
-                key: `${subKey + 1}`,
+                key: `${subKey + 1}/${selectMonth}`,
                 label: `${subKey + 1} - ${dayWeek[dayWeekIndex]}`,
               };
             }
@@ -50,20 +55,20 @@ const MenuSection = ({selectMonth, setSelectDay, selectDay}: any) => {
     },
   );
 
-  function SelectedItem({key}: any) {
-    setSelectDay(key);
-  }
+    const defaultSKeys = `${selectDay.toString()}/${currentMonth}`;
+    const defaultOKeys = `week${getCurrentWeek()}/${currentMonth}`;
+    return (
+      <Menu
+        mode="inline"
+        defaultSelectedKeys={[defaultSKeys]}
+        defaultOpenKeys={[defaultOKeys]}
+        style={{ height: '100%' }}
+        items={items2}
+        onClick={({key}) => selectedItem({key})}
+      />
+    )
 
-  return (
-    <Menu
-      mode="inline"
-      defaultSelectedKeys={[selectDay.toString()]}
-      defaultOpenKeys={[`sub${getCurrentWeek()}`]}
-      style={{ height: '100%' }}
-      items={items2}
-      onClick={({key}) => SelectedItem({key})}
-    /> 
-  )
+
 }
 
 export default MenuSection;

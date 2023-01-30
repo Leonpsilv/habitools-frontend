@@ -1,3 +1,5 @@
+import React from 'react';
+
 const useGetDate = () => {
   const date = new Date();
   const months = [
@@ -36,11 +38,14 @@ const useGetDate = () => {
     return currentWeek.toString();
   }
 
+  const [currentMonth, setCurrentMonth] = React.useState(months[date.getMonth()]);
+
   return {
     date,
     months,
     dayWeek,
     dayWeekEnglish,
+    currentMonth,
     getAllDaysInMonth,
     getCurrentWeek
   }
