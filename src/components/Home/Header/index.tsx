@@ -8,7 +8,7 @@ import useGetDate from "../../../Hooks/useGetDate";
 
 import SelectDate from "./SelectDate";
 
-const HeaderHome = ({setSelectMonth}: any) => {
+const HeaderHome = ({setSelectMonth, setSelectDay, setSelectYear}: any) => {
   const {Header} = Layout;
   const {months, date} = useGetDate();
   const currentMonth = months[date.getMonth()];
@@ -28,7 +28,11 @@ const HeaderHome = ({setSelectMonth}: any) => {
         <CarryOutOutlined style={{color: 'white', fontSize: '55px'}}/>
       </Space>
 
-      <SelectDate />
+      <SelectDate
+        setSelectMonth={setSelectMonth}
+        setSelectDay={setSelectDay}
+        setSelectYear={setSelectYear}
+      />
 
       <Menu
         theme="dark"

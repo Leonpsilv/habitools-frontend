@@ -20,7 +20,11 @@ const Home = () => {
   
     return (
       <Layout>
-        <HeaderHome setSelectMonth={setSelectMonth}/>
+        <HeaderHome
+          setSelectMonth={setSelectMonth}
+          setSelectDay={setSelectDay}
+          setSelectYear={setSelectYear}
+        />
 
         <Content style={{ padding: '0 50px' }}>
           <MenuInfo selectMonth={selectMonth} selectDay={selectDay} />
