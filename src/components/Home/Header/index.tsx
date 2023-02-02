@@ -6,6 +6,8 @@ import { Space } from 'antd';
 import style from "./styles/Header.module.css";
 import useGetDate from "../../../Hooks/useGetDate";
 
+import SelectDate from "./SelectDate";
+
 const HeaderHome = ({setSelectMonth}: any) => {
   const {Header} = Layout;
   const {months, date} = useGetDate();
@@ -25,6 +27,8 @@ const HeaderHome = ({setSelectMonth}: any) => {
       <Space className={style.iconLogo}>
         <CarryOutOutlined style={{color: 'white', fontSize: '55px'}}/>
       </Space>
+
+      <SelectDate />
 
       <Menu
         theme="dark"

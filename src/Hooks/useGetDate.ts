@@ -39,6 +39,7 @@ const useGetDate = () => {
   }
 
   const [currentMonth, setCurrentMonth] = React.useState(months[date.getMonth()]);
+  const [currentYear, setCurrentYear] = React.useState(date.getFullYear());
 
   return {
     date,
@@ -46,6 +47,7 @@ const useGetDate = () => {
     dayWeek,
     dayWeekEnglish,
     currentMonth,
+    currentYear,
     getAllDaysInMonth,
     getCurrentWeek
   }

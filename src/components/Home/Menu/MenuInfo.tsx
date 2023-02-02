@@ -5,7 +5,7 @@ const MenuInfo = ({selectMonth, selectDay}: any) => {
         <Breadcrumb style={{ margin: '16px 0' }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>{selectMonth}</Breadcrumb.Item>
-          <Breadcrumb.Item>{selectDay}</Breadcrumb.Item>
+          <Breadcrumb.Item>dia {selectDay}</Breadcrumb.Item>
         </Breadcrumb>
     )
 }

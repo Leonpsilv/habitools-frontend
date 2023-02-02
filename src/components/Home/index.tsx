@@ -16,6 +16,7 @@ const Home = () => {
     const {date, months} = useGetDate();
     const [selectMonth, setSelectMonth] = useState(months[date.getMonth()]);
     const [selectDay, setSelectDay] = useState(date.getDate());
+    const [selectYear, setSelectYear] = useState(date.getFullYear());
   
     return (
       <Layout>
@@ -30,7 +31,7 @@ const Home = () => {
               <MenuSection selectMonth={selectMonth} setSelectDay={setSelectDay} selectDay={selectDay}/>
             </Sider>
 
-            <Content style={{ padding: '0 24px', minHeight: 280 }}>{selectDay} de {selectMonth} de 2023</Content>
+            <Content style={{ padding: '0 24px', minHeight: 280 }}>{selectDay} de {selectMonth} de {selectYear}</Content>
           </Layout>
 
         </Content>
