@@ -40,6 +40,7 @@ const HeaderHome = ({selectMonth, setSelectMonth, setSelectDay, setSelectYear}: 
         items={items1}
         className={style.logoItens}
         onClick={({key}) => setNewSelectedMonth({key})}
+        selectedKeys={[selectMonth]}
       />
     </Header>
   )
