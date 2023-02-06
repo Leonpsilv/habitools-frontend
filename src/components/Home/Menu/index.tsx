@@ -25,7 +25,8 @@ const MenuSection = ({selectMonth, setSelectDay, selectDay}: any) => {
   ];
 
   function selectedItem({key}: any) {
-    setSelectDay(key);
+    const [day, ] = key.split("/");
+    setSelectDay(day);
   }
 
   const items2: MenuProps['items'] = [1, 2, 3, 4, 5].map(
