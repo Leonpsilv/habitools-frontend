@@ -21,13 +21,14 @@ const Home = () => {
     return (
       <Layout>
         <HeaderHome
+          selectMonth={selectMonth}
           setSelectMonth={setSelectMonth}
           setSelectDay={setSelectDay}
           setSelectYear={setSelectYear}
         />
 
         <Content style={{ padding: '0 50px' }}>
-          <MenuInfo selectMonth={selectMonth} selectDay={selectDay} />
+          <MenuInfo selectMonth={selectMonth} selectDay={selectDay} selectYear={selectYear}/>
 
           <Layout style={{ padding: '24px 0', background: colorBgContainer }}>
             <Sider style={{ background: colorBgContainer }} width={200}>

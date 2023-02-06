@@ -8,10 +8,9 @@ import useGetDate from "../../../Hooks/useGetDate";
 
 import SelectDate from "./SelectDate";
 
-const HeaderHome = ({setSelectMonth, setSelectDay, setSelectYear}: any) => {
+const HeaderHome = ({selectMonth, setSelectMonth, setSelectDay, setSelectYear}: any) => {
   const {Header} = Layout;
-  const {months, date} = useGetDate();
-  const currentMonth = months[date.getMonth()];
+  const {months} = useGetDate();
 
   const items1: MenuProps['items'] = months.map((key) => ({
     key,
@@ -37,7 +36,7 @@ const HeaderHome = ({setSelectMonth, setSelectDay, setSelectYear}: any) => {
       <Menu
         theme="dark"
         mode="horizontal"
-        defaultSelectedKeys={[currentMonth]}
+        defaultSelectedKeys={[selectMonth]}
         items={items1}
         className={style.logoItens}
         onClick={({key}) => setNewSelectedMonth({key})}
